@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="addItem" type="text" class="form-control text-center" value="1">
+                           <button id="minusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputFirstItem" type="text" class="form-control text-center" value="1">
                            <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="updatePrice" >1219</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -81,12 +81,35 @@
    <script>
       const plusBtn = document.getElementById("plusBtn");
       plusBtn.addEventListener("click", function(){
-         const addItem = document.getElementById("addItem").value;
-         const addItemNumber = parseFloat(addItem);
-         const increseItem = document.getElementById("addItem").value = addItemNumber + 1;      
+         const inputFirstItem = document.getElementById("inputFirstItem").value;
+         const inputFirstItemNumber = parseInt(inputFirstItem);
+         const increaseItemNumber = document.getElementById("inputFirstItem").value = inputFirstItemNumber + 1;  
+         const updatePrice = document.getElementById("updatePrice").innerText;
+         const updatePriceNumber = parseInt(updatePrice);
+         const changePrice = document.getElementById("updatePrice").innerText = updatePriceNumber + 1219;
       })
 
-      
+      const minusBtn = document.getElementById("minusBtn");
+      minusBtn.addEventListener("click", function(){
+         const inputFirstItem = document.getElementById("inputFirstItem").value;
+         const inputFirstItemNumber = parseInt(inputFirstItem);
+         const decreaseItemNumber = document.getElementById("inputFirstItem").value = inputFirstItemNumber - 1;
+         const updatePrice = document.getElementById("updatePrice").innerText;
+         const updatePriceNumber = parseInt(updatePrice);
+         const changePrice = document.getElementById("updatePrice").innerText = updatePriceNumber - 1219;
+      })
+
+      function addItemNumber(inputItem, updateItemPrice, price){
+         const inputItemValue = document.getElementById("inputItem").value;
+         const itemValueNumber = parseInt(inputItemValue);
+         const increaseValueNumber = document.getElementById("inputItem").value = itemValueNumber + 1;  
+         const itemPrice = document.getElementById("updateItemPrice").innerText;
+         const itemPriceNumber = parseInt(itemPrice);
+         const itemUpdatePrice = document.getElementById("updateItemPrice").innerText = itemPriceNumber + price;
+      }
+
+
+
 
 
 
